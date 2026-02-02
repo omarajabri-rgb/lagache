@@ -4,187 +4,741 @@
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1" />
 
-  <title>LA GÂCHE | Premium Gourmet Brand</title>
-  <meta name="description" content="LA GÂCHE is a premium gourmet brand embodying luxury and culinary excellence. Defined by refined craftsmanship, classic prestige, and modern refinement." />
+  <title>LA GÂCHE | Luxury Gourmet Brand</title>
+  <meta name="description" content="LA GÂCHE is a premium gourmet brand embodying luxury and culinary excellence. Sophisticated identity, refined craftsmanship, and an exclusive experience for discerning tastes." />
   <link rel="canonical" href="https://www.la-gache.com/" />
+
+  <!-- Open Graph (optional but professional) -->
+  <meta property="og:type" content="website" />
+  <meta property="og:title" content="LA GÂCHE | Luxury Gourmet Brand" />
+  <meta property="og:description" content="Luxury, culinary excellence, and refined craftsmanship — designed for discerning tastes." />
+  <meta property="og:url" content="https://www.la-gache.com/" />
+  <meta property="og:image" content="https://www.la-gache.com/gache.png" />
 
   <style>
     :root{
-      --black:#0f0f0f;
-      --gold:#c9a46b;
-      --muted:#6b7280;
       --bg:#ffffff;
+      --ink:#0b0f14;         /* deep black */
+      --ink-2:#111827;       /* softer black */
+      --muted:#6b7280;
+      --gold:#c9a46b;
+      --gold-2:#e3c890;
       --border:#e5e7eb;
-      --max:1100px;
-      --radius:18px;
+      --card:#f7f7f8;
+      --shadow: 0 20px 60px rgba(0,0,0,.10);
+      --shadow-soft: 0 14px 40px rgba(0,0,0,.08);
+      --radius: 22px;
+      --max: 1120px;
     }
 
-    *{box-sizing:border-box}
-
+    *{ box-sizing:border-box }
+    html{ scroll-behavior:smooth }
     body{
       margin:0;
-      font-family: system-ui, -apple-system, Segoe UI, Roboto, Arial, sans-serif;
-      background:var(--bg);
-      color:#111;
+      font-family: ui-sans-serif, system-ui, -apple-system, Segoe UI, Roboto, Arial, sans-serif;
+      color:var(--ink);
+      background: var(--bg);
       line-height:1.85;
     }
 
-    header{
-      border-bottom:1px solid var(--border);
-      background:#fff;
-    }
+    a{ color:inherit; text-decoration:none }
+    img{ max-width:100%; display:block }
 
     .container{
-      width:min(var(--max), calc(100% - 40px));
-      margin:auto;
+      width: min(var(--max), calc(100% - 44px));
+      margin: 0 auto;
+    }
+
+    /* ===== Top accent line ===== */
+    .accent-line{
+      height: 3px;
+      background: linear-gradient(90deg, rgba(201,164,107,.0), rgba(201,164,107,.9), rgba(201,164,107,.0));
+    }
+
+    /* ===== Header ===== */
+    header{
+      position: sticky;
+      top: 0;
+      z-index: 50;
+      background: rgba(255,255,255,.88);
+      backdrop-filter: blur(14px);
+      border-bottom: 1px solid var(--border);
     }
 
     .nav{
       display:flex;
-      justify-content:center;
-      padding:36px 0;
+      align-items:center;
+      justify-content:space-between;
+      padding: 18px 0;
+      gap: 18px;
     }
 
-    /* 🔥 LOGO SIZE CONTROL */
+    .brand{
+      display:flex;
+      align-items:center;
+      gap: 14px;
+      min-width: 210px;
+    }
+
+    /* LOGO SIZE (Luxury scale) */
     .brand img{
-      height:120px;   /* 👈 BIG LOGO */
-      width:auto;
-      display:block;
+      height: 84px; /* bigger + premium */
+      width: auto;
+      filter: drop-shadow(0 10px 24px rgba(0,0,0,.10));
     }
 
+    .brand .meta{
+      display:flex;
+      flex-direction:column;
+      line-height: 1.1;
+    }
+
+    .brand .meta strong{
+      letter-spacing: .4px;
+      font-size: 14px;
+    }
+    .brand .meta span{
+      font-size: 12px;
+      color: var(--muted);
+      letter-spacing: 2px;
+    }
+
+    .navlinks{
+      display:flex;
+      align-items:center;
+      gap: 18px;
+      font-weight: 700;
+      letter-spacing: .2px;
+    }
+
+    .navlinks a{
+      padding: 10px 12px;
+      border-radius: 999px;
+      transition: background .2s ease, transform .2s ease;
+    }
+    .navlinks a:hover{
+      background: rgba(201,164,107,.14);
+      transform: translateY(-1px);
+    }
+
+    .cta-row{
+      display:flex;
+      align-items:center;
+      gap: 10px;
+    }
+
+    .btn{
+      display:inline-flex;
+      align-items:center;
+      justify-content:center;
+      gap:10px;
+      padding: 12px 16px;
+      border-radius: 999px;
+      border: 1px solid var(--border);
+      background:#fff;
+      font-weight: 800;
+      transition: transform .2s ease, box-shadow .2s ease;
+      white-space: nowrap;
+    }
+    .btn:hover{
+      transform: translateY(-1px);
+      box-shadow: 0 12px 26px rgba(0,0,0,.08);
+    }
+    .btn.gold{
+      border: none;
+      color: #0b0f14;
+      background: linear-gradient(90deg, var(--gold), var(--gold-2));
+    }
+    .btn.dark{
+      border: none;
+      background: var(--ink);
+      color:#fff;
+    }
+
+    .mobile-toggle{
+      display:none;
+      padding: 10px 12px;
+      border-radius: 14px;
+      border:1px solid var(--border);
+      background:#fff;
+      font-weight: 800;
+    }
+
+    .mobile-menu{
+      display:none;
+      padding: 10px 0 18px;
+      border-top:1px solid var(--border);
+    }
+    .mobile-menu a{
+      display:block;
+      padding: 12px 10px;
+      border-radius: 14px;
+      font-weight: 800;
+    }
+    .mobile-menu a:hover{
+      background: rgba(201,164,107,.14);
+    }
+    .mobile-cta{
+      display:flex;
+      gap:10px;
+      padding-top: 12px;
+    }
+
+    /* ===== Hero ===== */
     .hero{
-      padding:80px 0 60px;
-      text-align:center;
+      position: relative;
+      overflow: hidden;
+      padding: 58px 0 40px;
+    }
+
+    .hero::before{
+      content:"";
+      position:absolute;
+      inset:-120px -80px auto -80px;
+      height: 420px;
+      background: radial-gradient(circle at 30% 40%, rgba(201,164,107,.22), rgba(201,164,107,0) 60%);
+      pointer-events:none;
+    }
+
+    .hero-grid{
+      display:grid;
+      grid-template-columns: 1.15fr .85fr;
+      gap: 26px;
+      align-items: stretch;
+    }
+
+    .kicker{
+      display:inline-flex;
+      align-items:center;
+      gap:10px;
+      padding: 8px 14px;
+      border-radius: 999px;
+      border: 1px solid rgba(201,164,107,.35);
+      background: rgba(201,164,107,.12);
+      color: #7a5b2b;
+      font-weight: 900;
+      letter-spacing: .4px;
+      width: fit-content;
+    }
+    .dot{
+      width:8px; height:8px;
+      border-radius: 999px;
+      background: var(--gold);
+      box-shadow: 0 0 0 4px rgba(201,164,107,.18);
     }
 
     h1{
-      font-size:clamp(40px, 5vw, 62px);
-      letter-spacing:-0.6px;
-      margin:30px 0 26px;
+      margin: 16px 0 12px;
+      font-size: clamp(40px, 5.4vw, 64px);
+      line-height: 1.08;
+      letter-spacing: -0.8px;
     }
 
-    .content{
-      max-width:880px;
-      margin:0 auto;
-      font-size:18px;
-      color:#1f2937;
+    .lead{
+      margin: 0 0 18px;
+      color: var(--muted);
+      font-size: 18px;
+      max-width: 62ch;
     }
 
-    .content p{
-      margin:0 0 26px;
+    .hero-actions{
+      display:flex;
+      flex-wrap: wrap;
+      gap: 10px;
+      margin-top: 18px;
     }
 
-    .divider{
-      width:90px;
-      height:2px;
-      background:var(--gold);
-      margin:50px auto;
-      border-radius:2px;
+    .hero-card{
+      border-radius: var(--radius);
+      border: 1px solid var(--border);
+      background: linear-gradient(180deg, #fff, #fbfbfb);
+      box-shadow: var(--shadow-soft);
+      overflow: hidden;
+      position: relative;
+      min-height: 320px;
     }
 
+    .hero-card .top{
+      padding: 18px 18px 12px;
+      display:flex;
+      align-items:flex-start;
+      justify-content:space-between;
+      gap: 14px;
+    }
+
+    .pill{
+      display:inline-flex;
+      align-items:center;
+      gap:8px;
+      padding: 8px 12px;
+      border-radius: 999px;
+      border: 1px solid var(--border);
+      background: #fff;
+      font-weight: 800;
+      color: var(--ink-2);
+      font-size: 13px;
+    }
+
+    .monogram{
+      width: 46px; height: 46px;
+      border-radius: 16px;
+      background: rgba(201,164,107,.16);
+      border: 1px solid rgba(201,164,107,.35);
+      display:grid;
+      place-items:center;
+      color: #7a5b2b;
+      font-weight: 1000;
+      letter-spacing: 1px;
+    }
+
+    .hero-card .body{
+      padding: 0 18px 18px;
+      color: var(--muted);
+      font-size: 14px;
+    }
+
+    .hero-card .divider{
+      height: 1px;
+      background: var(--border);
+      margin: 12px 0 14px;
+    }
+
+    .hero-card .signature{
+      display:flex;
+      align-items:center;
+      gap:12px;
+      padding: 16px 18px 18px;
+      background: linear-gradient(90deg, rgba(201,164,107,.10), rgba(201,164,107,0));
+      border-top: 1px solid var(--border);
+    }
+
+    .hero-card .signature img{
+      height: 64px;
+      width: auto;
+      opacity: .95;
+    }
+
+    .hero-card .signature .text{
+      display:flex;
+      flex-direction:column;
+      line-height: 1.1;
+    }
+    .hero-card .signature .text strong{
+      font-size: 13px;
+      letter-spacing:.4px;
+    }
+    .hero-card .signature .text span{
+      font-size: 12px;
+      color: var(--muted);
+      letter-spacing:1.6px;
+    }
+
+    /* ===== Sections ===== */
+    .section{
+      padding: 52px 0;
+    }
+
+    .section h2{
+      margin: 0 0 10px;
+      font-size: 30px;
+      letter-spacing: -0.4px;
+    }
+
+    .sub{
+      margin: 0 0 22px;
+      color: var(--muted);
+      max-width: 76ch;
+      font-size: 16px;
+    }
+
+    .grid{
+      display:grid;
+      grid-template-columns: repeat(3, 1fr);
+      gap: 14px;
+    }
+
+    .card{
+      border-radius: var(--radius);
+      border: 1px solid var(--border);
+      background: #fff;
+      box-shadow: 0 12px 32px rgba(0,0,0,.06);
+      padding: 18px;
+      transition: transform .2s ease, box-shadow .2s ease;
+    }
+    .card:hover{
+      transform: translateY(-2px);
+      box-shadow: var(--shadow-soft);
+    }
+
+    .icon{
+      width: 46px; height: 46px;
+      border-radius: 16px;
+      display:grid;
+      place-items:center;
+      background: rgba(201,164,107,.14);
+      border: 1px solid rgba(201,164,107,.32);
+      color:#7a5b2b;
+      font-weight: 1000;
+      margin-bottom: 10px;
+      letter-spacing:.6px;
+    }
+
+    .card h3{
+      margin: 0 0 6px;
+      font-size: 16px;
+      letter-spacing: .2px;
+    }
+    .card p{
+      margin:0;
+      color: var(--muted);
+      font-size: 14px;
+    }
+
+    /* ===== Editorial narrative ===== */
+    .narrative{
+      border-radius: var(--radius);
+      border: 1px solid var(--border);
+      background: linear-gradient(180deg, #fff, #fbfbfb);
+      box-shadow: 0 14px 44px rgba(0,0,0,.06);
+      padding: 26px;
+      overflow:hidden;
+      position:relative;
+    }
+
+    .narrative::before{
+      content:"";
+      position:absolute;
+      inset:-120px -80px auto auto;
+      width: 380px;
+      height: 380px;
+      background: radial-gradient(circle at 30% 30%, rgba(201,164,107,.20), rgba(201,164,107,0) 65%);
+      pointer-events:none;
+      transform: rotate(18deg);
+    }
+
+    .narrative p{
+      margin: 0 0 16px;
+      font-size: 15.8px;
+      color: #1f2937;
+      max-width: 92ch;
+      position: relative;
+    }
+
+    .rule{
+      width: 90px;
+      height: 2px;
+      background: linear-gradient(90deg, var(--gold), rgba(201,164,107,0));
+      border-radius: 2px;
+      margin: 18px 0;
+      position: relative;
+    }
+
+    /* ===== Footer ===== */
     footer{
-      border-top:1px solid var(--border);
-      padding:30px 0;
-      text-align:center;
-      font-size:14px;
-      color:var(--muted);
+      border-top: 1px solid var(--border);
+      padding: 28px 0;
+      color: var(--muted);
+      font-size: 14px;
+    }
+
+    .footer-row{
+      display:flex;
+      align-items:flex-start;
+      justify-content:space-between;
+      gap: 18px;
+      flex-wrap: wrap;
+    }
+
+    .footer-row strong{ color: var(--ink) }
+
+    /* ===== Responsive ===== */
+    @media (max-width: 980px){
+      .hero-grid{ grid-template-columns: 1fr; }
+      .grid{ grid-template-columns: 1fr; }
+      .brand img{ height: 78px; }
+      .navlinks{ display:none; }
+      .mobile-toggle{ display:inline-flex; }
+      .mobile-menu.show{ display:block; }
+    }
+    @media (max-width: 520px){
+      .container{ width: calc(100% - 28px); }
+      .brand img{ height: 72px; }
+      .hero{ padding: 40px 0 26px; }
+      h1{ margin-top: 14px; }
     }
   </style>
 </head>
 
 <body>
+  <div class="accent-line"></div>
 
-<header>
-  <div class="container">
-    <div class="nav">
-      <div class="brand">
-        <img src="gache.png" alt="LA GÂCHE Logo">
-      </div>
-    </div>
-  </div>
-</header>
-
-<main>
-
-  <section class="hero">
+  <header>
     <div class="container">
-      <h1>LA GÂCHE</h1>
+      <div class="nav">
+        <div class="brand">
+          <!-- Logo is in ROOT: gache.png -->
+          <img src="gache.png" alt="LA GÂCHE Logo" />
+          <div class="meta">
+            <strong>LA GÂCHE</strong>
+            <span>LUXURY GOURMET</span>
+          </div>
+        </div>
 
-      <div class="content">
+        <nav class="navlinks" aria-label="Primary">
+          <a href="#philosophy">Philosophy</a>
+          <a href="#identity">Identity</a>
+          <a href="#craft">Craft</a>
+          <a href="#narrative">Narrative</a>
+        </nav>
 
-        <p>
-          LA GÂCHE is a premium gourmet brand embodying luxury and culinary excellence at its
-          highest expression. Conceived as more than a name, LA GÂCHE represents a philosophy
-          rooted in refinement, discipline, and timeless elegance. Every element of the brand
-          reflects a deliberate approach to craftsmanship, where quality is never compromised
-          and details are treated as essential, not optional.
-        </p>
+        <div class="cta-row">
+          <a class="btn gold" href="#narrative">Discover</a>
+          <button class="mobile-toggle" data-toggle aria-expanded="false">Menu</button>
+        </div>
+      </div>
 
-        <p>
-          At the core of LA GÂCHE lies a deep respect for culinary artistry. Food, in its most
-          elevated form, is not merely prepared—it is composed, curated, and expressed with
-          intention. Each creation is designed to evoke balance, clarity, and confidence,
-          resulting in an experience that feels composed rather than excessive.
-        </p>
-
-        <div class="divider"></div>
-
-        <p>
-          The brand’s identity is defined by a sophisticated LG monogram rendered in rich black
-          and gold. This visual signature symbolizes authority, precision, and modern prestige.
-          Black conveys depth and timeless strength, while gold reflects mastery and refined
-          excellence. Together, they form an identity that communicates luxury quietly, without
-          the need for excess or exaggeration.
-        </p>
-
-        <p>
-          LA GÂCHE draws inspiration from classic gourmet traditions while embracing contemporary
-          refinement. The brand does not follow trends or seasonal noise; instead, it refines
-          enduring principles and presents them through a modern, confident lens. This balance
-          between heritage and innovation defines every aspect of the LA GÂCHE experience.
-        </p>
-
-        <div class="divider"></div>
-
-        <p>
-          Craftsmanship is the foundation upon which LA GÂCHE is built. Every decision, process,
-          and presentation is guided by discipline, technical expertise, and an uncompromising
-          standard of quality. Luxury, in this context, is expressed through restraint, harmony,
-          and precision rather than scale or extravagance.
-        </p>
-
-        <p>
-          The LA GÂCHE experience is designed for discerning tastes—individuals and institutions
-          who value distinction, discretion, and excellence. Each interaction is shaped with
-          intention, ensuring that the experience feels personal, refined, and memorable.
-        </p>
-
-        <p>
-          In an increasingly crowded landscape, LA GÂCHE stands apart by choosing depth over
-          noise and integrity over exposure. The brand is built for longevity, guided by
-          consistency, and defined by standards that speak for themselves rather than relying
-          on explanation.
-        </p>
-
-        <p>
-          Ultimately, LA GÂCHE exists to create moments of quiet luxury—experiences that leave a
-          lasting impression through elegance, balance, and thoughtful execution. It is a brand
-          that understands true luxury is not announced; it is recognized.
-        </p>
-
+      <div class="mobile-menu" data-menu>
+        <a href="#philosophy">Philosophy</a>
+        <a href="#identity">Identity</a>
+        <a href="#craft">Craft</a>
+        <a href="#narrative">Narrative</a>
+        <div class="mobile-cta">
+          <a class="btn gold" href="#narrative">Discover</a>
+          <a class="btn dark" href="#identity">Identity</a>
+        </div>
       </div>
     </div>
-  </section>
+  </header>
 
-</main>
+  <main>
+    <!-- HERO -->
+    <section class="hero">
+      <div class="container">
+        <div class="hero-grid">
+          <div>
+            <div class="kicker"><span class="dot"></span> Quiet Luxury • Culinary Excellence</div>
+            <h1>LA GÂCHE</h1>
+            <p class="lead">
+              A premium gourmet brand embodying luxury and culinary excellence—defined by refined craftsmanship,
+              classic prestige, and modern refinement. Designed for discerning tastes, shaped by intention, and
+              delivered with uncompromising standards.
+            </p>
 
-<footer>
-  © <span id="year"></span> LA GÂCHE
-</footer>
+            <div class="hero-actions">
+              <a class="btn gold" href="#narrative">Read the Brand Story</a>
+              <a class="btn" href="#craft">Our Standard</a>
+              <a class="btn dark" href="#identity">The Monogram</a>
+            </div>
+          </div>
 
-<script>
-  document.getElementById("year").textContent = new Date().getFullYear();
-</script>
+          <aside class="hero-card" aria-label="Brand card">
+            <div class="top">
+              <div class="pill">Exclusive • Refined • Timeless</div>
+              <div class="monogram">LG</div>
+            </div>
+            <div class="body">
+              LA GÂCHE is built on restraint and precision—where luxury is recognized, not announced.
+              A signature identity in black and gold, crafted for those who value detail and distinction.
+              <div class="divider"></div>
+              Explore the philosophy, identity, and craftsmanship that define the brand’s presence.
+            </div>
+            <div class="signature">
+              <img src="gache.png" alt="LA GÂCHE signature logo" />
+              <div class="text">
+                <strong>LA GÂCHE</strong>
+                <span>AMMAN • JORDAN</span>
+              </div>
+            </div>
+          </aside>
 
+        </div>
+      </div>
+    </section>
+
+    <!-- VALUE PILLARS -->
+    <section class="section" id="philosophy">
+      <div class="container">
+        <h2>Philosophy</h2>
+        <p class="sub">
+          LA GÂCHE is guided by a simple belief: true luxury lives in precision, restraint, and consistency.
+          Every touchpoint—visual, verbal, and experiential—exists to communicate excellence without noise.
+        </p>
+
+        <div class="grid">
+          <div class="card">
+            <div class="icon">01</div>
+            <h3>Quiet Confidence</h3>
+            <p>Luxury expressed through clarity, balance, and composure—never excess.</p>
+          </div>
+          <div class="card">
+            <div class="icon">02</div>
+            <h3>Intentional Detail</h3>
+            <p>From identity to execution, nothing is accidental; every element is curated.</p>
+          </div>
+          <div class="card">
+            <div class="icon">03</div>
+            <h3>Timeless Standard</h3>
+            <p>A brand built for longevity—consistent, refined, and unmistakably premium.</p>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- IDENTITY -->
+    <section class="section" id="identity">
+      <div class="container">
+        <h2>Identity</h2>
+        <p class="sub">
+          The brand’s visual language is anchored by a sophisticated LG monogram in rich black and gold—an emblem
+          of authority, mastery, and modern prestige. It is a signature, not decoration: a mark of intention.
+        </p>
+
+        <div class="grid">
+          <div class="card">
+            <div class="icon">B</div>
+            <h3>Black</h3>
+            <p>Depth, strength, and timeless elegance—quiet authority that never needs to shout.</p>
+          </div>
+          <div class="card">
+            <div class="icon">G</div>
+            <h3>Gold</h3>
+            <p>Mastery, refinement, and prestige—crafted brilliance that feels restrained, not loud.</p>
+          </div>
+          <div class="card">
+            <div class="icon">LG</div>
+            <h3>Monogram</h3>
+            <p>A symbol of signature-level craftsmanship—recognizable, coherent, and enduring.</p>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- CRAFT -->
+    <section class="section" id="craft">
+      <div class="container">
+        <h2>Craftsmanship</h2>
+        <p class="sub">
+          LA GÂCHE elevates the gourmet experience through discipline and precision. Craft is not a feature—it is
+          the foundation. The standard is uncompromising, the execution is deliberate, and the result is cohesive.
+        </p>
+
+        <div class="grid">
+          <div class="card">
+            <div class="icon">✦</div>
+            <h3>Precision</h3>
+            <p>Every decision is measured: composition, balance, and the integrity of the final experience.</p>
+          </div>
+          <div class="card">
+            <div class="icon">◎</div>
+            <h3>Restraint</h3>
+            <p>Elegance is clarity—an approach that favors refinement over spectacle.</p>
+          </div>
+          <div class="card">
+            <div class="icon">⟡</div>
+            <h3>Consistency</h3>
+            <p>A unified presence across all touchpoints—recognizable, reliable, and premium.</p>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- NARRATIVE (500–1000 words, editorial layout) -->
+    <section class="section" id="narrative">
+      <div class="container">
+        <h2>Brand Narrative</h2>
+        <p class="sub">
+          A complete editorial brand statement—crafted to read like a luxury house, not a generic food page.
+        </p>
+
+        <div class="narrative">
+          <p>
+            <strong>LA GÂCHE</strong> is a premium gourmet brand embodying luxury and culinary excellence. More than a name,
+            it represents a philosophy shaped by precision, restraint, and timeless refinement. In a world increasingly
+            driven by noise and speed, LA GÂCHE chooses clarity. The brand is built on the belief that the highest form of
+            quality is not announced—it is recognized. Every element is designed to feel intentional, cohesive, and quietly
+            powerful.
+          </p>
+
+          <p>
+            At its core, LA GÂCHE approaches gastronomy as an art of composition. Food, in its most elevated expression, is
+            not merely prepared—it is curated. It reflects identity, taste, and intention. The difference between “good” and
+            “exceptional” is rarely found in a single detail; it is found in the harmony of many—timing, balance, texture,
+            presentation, and the confidence of execution. LA GÂCHE exists within that space: where craft becomes signature.
+          </p>
+
+          <div class="rule"></div>
+
+          <p>
+            Our identity, defined by a sophisticated LG monogram in rich black and gold, blends classic prestige with modern
+            refinement. This monogram is not decorative—it is a signature. Black represents depth, authority, and timeless
+            elegance, while gold communicates mastery, discretion, and elevated excellence. Together, they create a visual
+            language that is confident without being loud, refined without being cold, and modern without compromising
+            tradition.
+          </p>
+
+          <p>
+            LA GÂCHE draws inspiration from classic culinary heritage while embracing contemporary sophistication. The brand
+            does not chase trends. Instead, it refines enduring principles and presents them with a modern sensibility that
+            feels precise, measured, and elevated. This balance—between heritage and innovation—is the foundation of the LA
+            GÂCHE presence. It is the reason the brand feels established even as it continues to evolve.
+          </p>
+
+          <div class="rule"></div>
+
+          <p>
+            We are committed to high-end craftsmanship and delivering an exclusive experience tailored for the most discerning
+            tastes. Craftsmanship is not a slogan; it is the method. It shows in how ideas are shaped, how standards are set,
+            and how details are protected. Luxury here is not excess—it is discipline. It is the quiet confidence of a brand
+            that prioritizes consistency, coherence, and control over every touchpoint.
+          </p>
+
+          <p>
+            The LA GÂCHE experience is designed to feel effortless to the client, even when the process behind it is complex.
+            This is the hallmark of high-end execution: the hidden structure that makes elegance appear natural. From the first
+            impression to the final detail, the brand aims to create an encounter that is refined, intentional, and memorable—
+            one that feels personal without becoming informal, and exclusive without becoming distant.
+          </p>
+
+          <div class="rule"></div>
+
+          <p>
+            In an increasingly crowded landscape, LA GÂCHE stands apart through restraint and integrity. The brand is built for
+            longevity, not for a moment. It chooses depth over noise, standards over shortcuts, and refinement over exaggeration.
+            Ultimately, LA GÂCHE exists to create moments of quiet luxury—experiences that linger, impressions that endure, and a
+            presence that speaks for itself.
+          </p>
+        </div>
+      </div>
+    </section>
+  </main>
+
+  <footer>
+    <div class="container">
+      <div class="footer-row">
+        <div>
+          <strong>LA GÂCHE</strong><br>
+          Luxury Gourmet Brand • Amman, Jordan
+        </div>
+        <div>
+          © <span id="year"></span> LA GÂCHE
+        </div>
+      </div>
+    </div>
+  </footer>
+
+  <script>
+    // year
+    document.getElementById("year").textContent = new Date().getFullYear();
+
+    // mobile menu
+    const btn = document.querySelector("[data-toggle]");
+    const menu = document.querySelector("[data-menu]");
+    if(btn && menu){
+      btn.addEventListener("click", () => {
+        const open = menu.classList.toggle("show");
+        btn.setAttribute("aria-expanded", open ? "true" : "false");
+      });
+    }
+  </script>
 </body>
 </html>
