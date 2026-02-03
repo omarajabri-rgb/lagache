@@ -4,170 +4,598 @@
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1" />
 
-  <title>LA GÂCHE | Luxury Gourmet Brand</title>
-  <meta name="description" content="LA GÂCHE is a premium gourmet brand embodying luxury and culinary excellence. A warm, refined identity built on craftsmanship and intention." />
+  <title>LA GÂCHE | Luxury Food Service</title>
+  <meta name="description" content="LA GÂCHE is a premium gourmet brand embodying luxury and culinary excellence, crafted with warmth, intention, and refined detail." />
   <link rel="canonical" href="https://www.la-gache.com/" />
 
   <style>
     :root{
-      --bg:#f9f7f4;        /* warm white */
-      --ink:#1c1c1c;       /* soft black */
-      --muted:#6f6a63;     /* warm gray */
-      --gold:#c9a46b;      /* matte gold */
-      --max: 980px;
+      --bg: #fbf8f3;          /* warm ivory */
+      --paper:#ffffff;
+      --ink: #141414;         /* soft black */
+      --ink2:#1f2937;
+      --muted:#6f6a63;        /* warm gray */
+      --gold:#c9a46b;         /* matte gold */
+      --gold2:#e3c890;
+      --border:#e9e3da;
+      --shadow: 0 18px 46px rgba(0,0,0,.08);
+      --radius: 22px;
+      --max: 1120px;
     }
 
-    *{ box-sizing:border-box }
+    *{ box-sizing:border-box; }
+    html{ scroll-behavior:smooth; }
     body{
       margin:0;
-      font-family: Georgia, "Times New Roman", serif;
-      background: var(--bg);
-      color: var(--ink);
-      line-height:1.9;
+      font-family: ui-sans-serif, system-ui, -apple-system, Segoe UI, Roboto, Arial, sans-serif;
+      background: radial-gradient(circle at 30% 10%, rgba(201,164,107,.10), rgba(201,164,107,0) 45%),
+                  radial-gradient(circle at 80% 20%, rgba(201,164,107,.08), rgba(201,164,107,0) 50%),
+                  var(--bg);
+      color:var(--ink);
+      line-height:1.75;
     }
 
-    img{ max-width:100%; display:block }
+    a{ color:inherit; text-decoration:none; }
+    img{ max-width:100%; display:block; }
 
-    .wrap{
-      width:min(var(--max), calc(100% - 48px));
+    .container{
+      width:min(var(--max), calc(100% - 44px));
       margin:0 auto;
     }
 
     /* Header */
     header{
-      padding:64px 0 48px;
-      text-align:center;
+      position:sticky;
+      top:0;
+      z-index:50;
+      background: rgba(251,248,243,.86);
+      backdrop-filter: blur(14px);
+      border-bottom:1px solid var(--border);
     }
 
-    .logo{
-      margin-bottom:40px;
+    .nav{
+      display:flex;
+      align-items:center;
+      justify-content:space-between;
+      gap:16px;
+      padding:18px 0;
     }
 
-    .logo img{
-      height:120px; /* big, calm logo */
-      margin:0 auto;
+    .brand{
+      display:flex;
+      align-items:center;
+      gap:14px;
+      min-width: 220px;
     }
 
-    /* Hero text */
-    h1{
-      font-size:42px;
-      font-weight:400;
-      letter-spacing:-0.3px;
-      margin:0 0 24px;
+    .brand img{
+      height:82px;      /* logo size */
+      width:auto;
+      filter: drop-shadow(0 10px 22px rgba(0,0,0,.10));
     }
 
-    .intro{
-      font-size:18px;
+    .brand .meta{
+      display:flex;
+      flex-direction:column;
+      line-height:1.05;
+    }
+    .brand .meta strong{
+      letter-spacing:.3px;
+      font-size:14px;
+    }
+    .brand .meta span{
       color:var(--muted);
-      max-width:720px;
-      margin:0 auto;
+      letter-spacing:2px;
+      font-size:12px;
     }
 
-    /* Divider */
+    .links{
+      display:flex;
+      align-items:center;
+      gap:18px;
+      font-weight:800;
+      color:var(--ink2);
+    }
+    .links a{
+      padding:10px 12px;
+      border-radius:999px;
+      transition: background .2s ease, transform .2s ease;
+    }
+    .links a:hover{
+      background: rgba(201,164,107,.14);
+      transform: translateY(-1px);
+    }
+
+    .cta{
+      display:flex;
+      align-items:center;
+      gap:10px;
+    }
+
+    .btn{
+      display:inline-flex;
+      align-items:center;
+      justify-content:center;
+      padding:12px 16px;
+      border-radius:999px;
+      border:1px solid var(--border);
+      background: var(--paper);
+      font-weight:900;
+      transition: transform .2s ease, box-shadow .2s ease;
+      white-space:nowrap;
+    }
+    .btn:hover{
+      transform: translateY(-1px);
+      box-shadow: 0 12px 28px rgba(0,0,0,.08);
+    }
+    .btn.gold{
+      border:none;
+      background: linear-gradient(90deg, var(--gold), var(--gold2));
+      color:#111;
+    }
+    .btn.dark{
+      border:none;
+      background: var(--ink);
+      color:#fff;
+    }
+
+    .menuBtn{
+      display:none;
+      border:1px solid var(--border);
+      background: var(--paper);
+      border-radius: 14px;
+      padding:10px 12px;
+      font-weight:900;
+    }
+    .mobileMenu{
+      display:none;
+      border-top:1px solid var(--border);
+      padding: 10px 0 18px;
+    }
+    .mobileMenu a{
+      display:block;
+      padding:12px 10px;
+      border-radius:14px;
+      font-weight:900;
+    }
+    .mobileMenu a:hover{
+      background: rgba(201,164,107,.14);
+    }
+    .mobileMenu .row{
+      display:flex;
+      gap:10px;
+      padding-top:10px;
+    }
+
+    /* Hero */
+    .hero{
+      padding: 56px 0 26px;
+    }
+
+    .heroGrid{
+      display:grid;
+      grid-template-columns: 1.2fr .8fr;
+      gap: 18px;
+      align-items: stretch;
+    }
+
+    .kicker{
+      display:inline-flex;
+      align-items:center;
+      gap:10px;
+      padding:8px 14px;
+      border-radius:999px;
+      border:1px solid rgba(201,164,107,.28);
+      background: rgba(201,164,107,.10);
+      color:#7a5b2b;
+      font-weight:900;
+      width: fit-content;
+    }
+    .dot{
+      width:8px;height:8px;border-radius:999px;background:var(--gold);
+      box-shadow:0 0 0 4px rgba(201,164,107,.14);
+    }
+
+    h1{
+      margin: 16px 0 12px;
+      font-size: clamp(40px, 5vw, 66px);
+      letter-spacing:-0.9px;
+      line-height:1.05;
+    }
+
+    .lead{
+      color: var(--muted);
+      font-size: 18px;
+      max-width: 66ch;
+      margin: 0 0 18px;
+    }
+
+    .heroActions{
+      display:flex;
+      flex-wrap:wrap;
+      gap:10px;
+      margin-top: 12px;
+    }
+
+    .panel{
+      border:1px solid var(--border);
+      background: linear-gradient(180deg, rgba(255,255,255,.92), rgba(255,255,255,.75));
+      border-radius: var(--radius);
+      box-shadow: var(--shadow);
+      padding: 18px;
+      position:relative;
+      overflow:hidden;
+      min-height: 260px;
+    }
+    .panel::before{
+      content:"";
+      position:absolute;
+      inset:-140px -140px auto auto;
+      width: 360px;
+      height: 360px;
+      background: radial-gradient(circle at 35% 35%, rgba(201,164,107,.18), rgba(201,164,107,0) 65%);
+      transform: rotate(18deg);
+      pointer-events:none;
+    }
+
+    .panel h3{
+      margin:0 0 8px;
+      font-size: 16px;
+      letter-spacing:.2px;
+    }
+    .panel p{
+      margin:0 0 12px;
+      color: var(--muted);
+      font-size: 14px;
+      position:relative;
+    }
+
+    .tagRow{
+      display:flex;
+      gap:8px;
+      flex-wrap:wrap;
+      position:relative;
+      margin-top: 12px;
+    }
+    .tag{
+      font-weight:900;
+      font-size:12px;
+      color:#4b5563;
+      padding:8px 10px;
+      border-radius:999px;
+      border:1px solid var(--border);
+      background: rgba(255,255,255,.75);
+    }
+
+    /* Sections */
+    .section{
+      padding: 40px 0;
+    }
+    .sectionHeader{
+      display:flex;
+      justify-content:space-between;
+      align-items:flex-end;
+      gap:16px;
+      margin-bottom: 14px;
+    }
+    .section h2{
+      margin:0;
+      font-size: 28px;
+      letter-spacing:-0.4px;
+    }
+    .sub{
+      margin:0;
+      color: var(--muted);
+      max-width: 80ch;
+      font-size: 15.5px;
+    }
+
+    .grid{
+      display:grid;
+      grid-template-columns: repeat(3, 1fr);
+      gap: 14px;
+    }
+
+    .card{
+      border:1px solid var(--border);
+      background: rgba(255,255,255,.86);
+      border-radius: var(--radius);
+      padding: 16px;
+      box-shadow: 0 12px 32px rgba(0,0,0,.05);
+      transition: transform .2s ease, box-shadow .2s ease;
+    }
+    .card:hover{
+      transform: translateY(-2px);
+      box-shadow: 0 16px 42px rgba(0,0,0,.08);
+    }
+    .card .icon{
+      width: 44px;height:44px;border-radius: 16px;
+      display:grid;place-items:center;
+      background: rgba(201,164,107,.14);
+      border:1px solid rgba(201,164,107,.30);
+      color:#7a5b2b;
+      font-weight:1000;
+      margin-bottom: 10px;
+    }
+    .card h4{
+      margin:0 0 6px;
+      font-size: 16px;
+      letter-spacing:.2px;
+    }
+    .card p{
+      margin:0;
+      color: var(--muted);
+      font-size: 14px;
+    }
+
     .rule{
-      width:72px;
-      height:1px;
-      background:var(--gold);
-      margin:80px auto;
-    }
-
-    /* Editorial content */
-    .editorial{
-      font-size:17px;
-      max-width:760px;
-      margin:0 auto 120px;
-    }
-
-    .editorial p{
-      margin:0 0 28px;
+      width: 86px;
+      height: 2px;
+      background: linear-gradient(90deg, var(--gold), rgba(201,164,107,0));
+      border-radius: 2px;
+      margin: 22px 0;
     }
 
     /* Footer */
     footer{
-      padding:48px 0 64px;
-      text-align:center;
-      font-size:14px;
-      color:var(--muted);
+      border-top: 1px solid var(--border);
+      padding: 26px 0 42px;
+      color: var(--muted);
+      font-size: 14px;
+    }
+    .footerRow{
+      display:flex;
+      justify-content:space-between;
+      align-items:flex-start;
+      gap:16px;
+      flex-wrap:wrap;
+    }
+
+    /* Responsive */
+    @media (max-width: 980px){
+      .heroGrid{ grid-template-columns: 1fr; }
+      .grid{ grid-template-columns: 1fr; }
+      .links{ display:none; }
+      .menuBtn{ display:inline-flex; }
+      .mobileMenu.show{ display:block; }
+      .brand img{ height:76px; }
     }
   </style>
 </head>
 
 <body>
+  <header>
+    <div class="container">
+      <div class="nav">
+        <div class="brand">
+          <!-- Logo file name has a space; using %20 makes it work on GitHub Pages -->
+          <img src="gachee%20logo.png" alt="LA GÂCHE Logo">
+          <div class="meta">
+            <strong>LA GÂCHE</strong>
+            <span>LUXURY FOOD SERVICE</span>
+          </div>
+        </div>
 
-<header>
-  <div class="wrap">
-    <div class="logo">
-      <img src="gache.png" alt="LA GÂCHE Logo">
+        <nav class="links" aria-label="Primary">
+          <a href="#about">About</a>
+          <a href="#services">Services</a>
+          <a href="#craft">Craft</a>
+          <a href="#contact">Contact</a>
+        </nav>
+
+        <div class="cta">
+          <a class="btn gold" href="#contact">Inquire</a>
+          <button class="menuBtn" data-toggle aria-expanded="false">Menu</button>
+        </div>
+      </div>
+
+      <div class="mobileMenu" data-menu>
+        <a href="#about">About</a>
+        <a href="#services">Services</a>
+        <a href="#craft">Craft</a>
+        <a href="#contact">Contact</a>
+        <div class="row">
+          <a class="btn gold" href="#contact">Inquire</a>
+          <a class="btn dark" href="#services">Services</a>
+        </div>
+      </div>
     </div>
+  </header>
 
-    <h1>LA GÂCHE</h1>
+  <main>
+    <!-- HERO -->
+    <section class="hero">
+      <div class="container">
+        <div class="heroGrid">
 
-    <p class="intro">
-      A premium gourmet brand embodying luxury and culinary excellence.
-      Crafted with warmth, intention, and quiet confidence.
-    </p>
-  </div>
-</header>
+          <div>
+            <div class="kicker"><span class="dot"></span> Warm Luxury • Culinary Excellence</div>
+            <h1>LA GÂCHE</h1>
+            <p class="lead">
+              LA GÂCHE is a premium gourmet brand embodying luxury and culinary excellence.
+              Our identity, defined by a sophisticated LG monogram in rich black and gold,
+              blends classic prestige with modern refinement. We are committed to high-end
+              craftsmanship and delivering an exclusive experience tailored for the most
+              discerning tastes.
+            </p>
 
-<div class="rule"></div>
+            <div class="heroActions">
+              <a class="btn gold" href="about.html">Read About</a>
+              <a class="btn" href="#services">Explore Services</a>
+              <a class="btn dark" href="#contact">Contact</a>
+            </div>
+          </div>
 
-<main>
-  <section class="editorial">
+          <aside class="panel">
+            <h3>A quiet standard, delivered with warmth</h3>
+            <p>
+              A refined approach that prioritizes balance, intention, and detail. The goal is not
+              excess—it's coherence: an experience that feels effortless, composed, and memorable.
+            </p>
 
-    <p>
-      LA GÂCHE is a premium gourmet brand built on the belief that true luxury is felt
-      before it is explained. Rooted in craftsmanship and guided by intention, the brand
-      approaches culinary excellence as an intimate, human experience rather than a
-      performance. Every detail is considered, not to impress loudly, but to resonate
-      deeply.
-    </p>
+            <div class="rule"></div>
 
-    <p>
-      At the heart of LA GÂCHE lies a respect for tradition balanced with modern refinement.
-      The brand draws from classic culinary heritage while embracing a contemporary
-      sensibility that values clarity, balance, and restraint. This dialogue between past
-      and present gives LA GÂCHE its distinctive warmth and timeless character.
-    </p>
+            <p>
+              Designed for clients who value discretion and quality, LA GÂCHE creates an elevated
+              presence across every touchpoint—visual, verbal, and experiential.
+            </p>
 
-    <p>
-      Our identity, defined by a sophisticated LG monogram in rich black and gold, reflects
-      this philosophy. It is not decorative, but intentional. Black conveys depth and quiet
-      authority, while gold introduces a gentle sense of refinement. Together, they form a
-      visual language that feels confident, familiar, and enduring.
-    </p>
+            <div class="tagRow">
+              <span class="tag">Refined</span>
+              <span class="tag">Warm</span>
+              <span class="tag">Exclusive</span>
+              <span class="tag">Craft-led</span>
+            </div>
+          </aside>
 
-    <p>
-      LA GÂCHE is committed to high-end craftsmanship at every level. From concept to
-      execution, the process is guided by patience, precision, and respect for materials.
-      Luxury, in this context, is not excess, but care. It is found in the harmony of
-      elements and the honesty of expression.
-    </p>
+        </div>
+      </div>
+    </section>
 
-    <p>
-      The experience offered by LA GÂCHE is designed to feel personal and warm. It invites
-      connection rather than distance, creating moments that linger not because they are
-      extravagant, but because they are sincere. Each encounter reflects a quiet
-      confidence, shaped for those who appreciate depth, subtlety, and meaning.
-    </p>
+    <!-- ABOUT PREVIEW -->
+    <section class="section" id="about">
+      <div class="container">
+        <div class="sectionHeader">
+          <div>
+            <h2>About</h2>
+            <p class="sub">A premium gourmet identity built on intention, restraint, and human warmth.</p>
+          </div>
+          <a class="btn" href="about.html">Open About</a>
+        </div>
 
-    <p>
-      In a world that often moves too fast, LA GÂCHE chooses a slower, more thoughtful
-      rhythm. It is a brand that values presence over noise and substance over spectacle.
-      Ultimately, LA GÂCHE exists to offer a refined gourmet experience that feels human,
-      timeless, and genuinely warm.
-    </p>
+        <div class="card">
+          <div class="icon">LG</div>
+          <h4>Warm editorial luxury</h4>
+          <p>
+            LA GÂCHE speaks with quiet confidence—refined, modern, and deeply human.
+            The experience is crafted to feel personal, elevated, and sincere.
+          </p>
+        </div>
+      </div>
+    </section>
 
-  </section>
-</main>
+    <!-- SERVICES -->
+    <section class="section" id="services">
+      <div class="container">
+        <div class="sectionHeader">
+          <div>
+            <h2>Services</h2>
+            <p class="sub">Curated offerings presented with clarity and elegance.</p>
+          </div>
+        </div>
 
-<footer>
-  © <span id="year"></span> LA GÂCHE
-</footer>
+        <div class="grid">
+          <div class="card">
+            <div class="icon">◇</div>
+            <h4>Curated Experiences</h4>
+            <p>Thoughtfully designed moments—balanced, refined, and tailored to the occasion.</p>
+          </div>
+          <div class="card">
+            <div class="icon">✦</div>
+            <h4>Bespoke Concepts</h4>
+            <p>Custom ideas shaped with discipline and taste, built around intention and detail.</p>
+          </div>
+          <div class="card">
+            <div class="icon">◎</div>
+            <h4>Elegant Presentation</h4>
+            <p>A cohesive presence—where visual identity meets culinary refinement.</p>
+          </div>
+        </div>
+      </div>
+    </section>
 
-<script>
-  document.getElementById("year").textContent = new Date().getFullYear();
-</script>
+    <!-- CRAFT -->
+    <section class="section" id="craft">
+      <div class="container">
+        <div class="sectionHeader">
+          <div>
+            <h2>Craft</h2>
+            <p class="sub">Luxury is discipline: precision, restraint, and consistency.</p>
+          </div>
+        </div>
 
+        <div class="card">
+          <div class="icon">✺</div>
+          <h4>Quiet excellence</h4>
+          <p>
+            Craftsmanship is not a claim—it’s a method. Every decision is measured, every detail is intentional,
+            and every experience is delivered with a calm, confident standard.
+          </p>
+        </div>
+      </div>
+    </section>
+
+    <!-- CONTACT -->
+    <section class="section" id="contact">
+      <div class="container">
+        <div class="sectionHeader">
+          <div>
+            <h2>Contact</h2>
+            <p class="sub">A simple, respectful way to begin a conversation.</p>
+          </div>
+        </div>
+
+        <div class="card">
+          <div class="icon">✉</div>
+          <h4>Send a message</h4>
+          <p style="margin-bottom:14px;">
+            Share a brief note about what you are looking to create. We will respond with clarity and care.
+          </p>
+
+          <!-- Simple contact form (no numbers, no email shown publicly) -->
+          <form action="#" method="post">
+            <div style="display:grid; gap:10px; max-width:720px;">
+              <input
+                type="text"
+                name="name"
+                placeholder="Your name"
+                style="padding:14px 14px; border:1px solid var(--border); border-radius:14px; background:#fff; font:inherit;"
+              />
+              <textarea
+                name="message"
+                placeholder="Your message"
+                rows="5"
+                style="padding:14px 14px; border:1px solid var(--border); border-radius:14px; background:#fff; font:inherit; resize:vertical;"
+              ></textarea>
+              <button class="btn gold" type="button" onclick="alert('Form placeholder: connect this to an email service later.');">
+                Submit
+              </button>
+            </div>
+          </form>
+
+          <p style="color:var(--muted); font-size:13px; margin-top:12px;">
+            This form is a placeholder. You can connect it later to an email service when you’re ready.
+          </p>
+        </div>
+      </div>
+    </section>
+  </main>
+
+  <footer>
+    <div class="container">
+      <div class="footerRow">
+        <div>
+          <strong style="color:var(--ink2);">LA GÂCHE</strong><br>
+          Warm luxury food service — crafted with intention.
+        </div>
+        <div>
+          © <span id="year"></span> LA GÂCHE
+        </div>
+      </div>
+    </div>
+  </footer>
+
+  <script>
+    document.getElementById("year").textContent = new Date().getFullYear();
+
+    const btn = document.querySelector("[data-toggle]");
+    const menu = document.querySelector("[data-menu]");
+    if(btn && menu){
+      btn.addEventListener("click", () => {
+        const open = menu.classList.toggle("show");
+        btn.setAttribute("aria-expanded", open ? "true" : "false");
+      });
+    }
+  </script>
 </body>
 </html>
-
