@@ -6,7 +6,6 @@
 
   <title>LA GÂCHE</title>
   <meta name="description" content="LA GÂCHE is a premium gourmet brand embodying luxury and culinary excellence—crafted with warmth, intention, and refined detail." />
-  <link rel="canonical" href="https://www.la-gache.com/" />
 
   <style>
     :root{
@@ -19,16 +18,23 @@
     }
 
     *{ box-sizing:border-box; }
+
     body{
       margin:0;
-      font-family: ui-sans-serif, system-ui, -apple-system, Segoe UI, Roboto, Arial, sans-serif;
+      font-family: system-ui, -apple-system, Segoe UI, Roboto, Arial, sans-serif;
       background: var(--bg);
       color: var(--ink);
       line-height:1.8;
     }
 
-    a{ color:inherit; text-decoration:none; }
-    a:hover{ text-decoration: underline; text-underline-offset: 6px; }
+    a{
+      color:inherit;
+      text-decoration:none;
+    }
+    a:hover{
+      text-decoration: underline;
+      text-underline-offset:6px;
+    }
 
     .wrap{
       width:min(var(--max), calc(100% - 44px));
@@ -36,7 +42,7 @@
     }
 
     header{
-      padding: 36px 0;
+      padding: 32px 0;
       border-bottom: 1px solid var(--border);
     }
 
@@ -44,70 +50,67 @@
       display:flex;
       align-items:center;
       justify-content:space-between;
-      gap: 18px;
-      flex-wrap: wrap;
+      gap:18px;
+      flex-wrap:wrap;
     }
 
-    /* LOGO ONLY — no text beside */
+    /* LOGO ONLY */
     .brand img{
-      height: 120px; /* bigger logo */
+      height: 120px;      /* adjust if needed */
       width:auto;
       display:block;
-      background: transparent; /* ensure PNG blends */
+      background: transparent; /* PNG blends naturally */
     }
 
     nav{
       display:flex;
-      gap: 16px;
-      font-weight: 700;
-      color: #111827;
+      gap:16px;
+      font-weight:700;
     }
 
     main{
-      padding: 64px 0 70px;
+      padding:64px 0 72px;
     }
 
     h1{
-      font-size: 44px;
-      letter-spacing: -0.6px;
-      margin: 0 0 14px;
-      font-weight: 700;
+      font-size:44px;
+      margin:0 0 14px;
+      letter-spacing:-0.6px;
     }
 
     .subtitle{
-      color: var(--muted);
-      font-size: 18px;
-      margin: 0 0 30px;
-      max-width: 70ch;
+      font-size:18px;
+      color:var(--muted);
+      max-width:70ch;
+      margin-bottom:32px;
     }
 
     .rule{
-      width: 72px;
-      height: 2px;
-      background: var(--gold);
-      margin: 38px 0;
+      width:72px;
+      height:2px;
+      background:var(--gold);
+      margin:40px 0;
     }
 
     .content{
-      max-width: 760px;
-      font-size: 16.5px;
-      color: #1f2937;
+      max-width:760px;
+      font-size:16.5px;
+      color:#1f2937;
     }
     .content p{
-      margin: 0 0 18px;
+      margin:0 0 18px;
     }
 
     footer{
       border-top:1px solid var(--border);
-      padding: 26px 0 36px;
-      color: var(--muted);
-      font-size: 14px;
+      padding:26px 0 36px;
+      font-size:14px;
+      color:var(--muted);
     }
 
-    @media (max-width: 520px){
-      .brand img{ height: 100px; }
-      h1{ font-size: 38px; }
-      nav{ gap: 12px; }
+    @media (max-width:520px){
+      .brand img{ height: 96px; }
+      h1{ font-size:38px; }
     }
   </style>
 </head>
@@ -117,44 +120,49 @@
 <header>
   <div class="wrap">
     <div class="top">
+
+      <!-- LOGO -->
       <div class="brand">
-        <!-- Logo only, transparent PNG -->
         <img src="gachee%20logo.png" alt="LA GÂCHE Logo">
       </div>
 
-      <nav aria-label="Primary">
+      <!-- NAV -->
+      <nav>
         <a href="index.html" style="text-decoration:underline; text-underline-offset:6px;">Home</a>
         <a href="about.html">About</a>
-        <a href="#">Services</a>
-        <a href="#">Contact</a>
+        <a href="services.html">Services</a>
+        <a href="contact.html">Contact</a>
       </nav>
+
     </div>
   </div>
 </header>
 
 <main>
   <div class="wrap">
+
     <h1>Luxury, delivered with warmth.</h1>
 
     <p class="subtitle">
-     Welcome to LA GĂCHE
-Experience the Art of Gourmet Catering
-Welcome to LA GĂCHE, where culinary excellence meets unparalleled luxury. We believe that catering is not just about serving food; it is about creating an atmosphere of sophistication and a lasting sensory memory.
+      LA GÂCHE is a premium gourmet brand embodying luxury and culinary excellence.
+      Our identity blends classic prestige with modern refinement, guided by
+      craftsmanship, intention, and a quiet sense of confidence.
     </p>
 
     <div class="rule"></div>
 
     <div class="content">
       <p>
-        We specialize in crafting exclusive dining experiences tailored for the most discerning tastes. Whether you are hosting a sophisticated private celebration, an intimate gathering, or a high-end corporate event, our mission is to provide a seamless blend of world-class flavors and flawless service.
+        LA GÂCHE was created for those who appreciate clarity over excess.
+        Every detail is treated as essential, every experience shaped with care.
       </p>
 
       <p>
-        At LA GĂCHE, our commitment to premium quality and artistic presentation ensures that every bite is a masterpiece. We meticulously source the finest ingredients and apply high-end craftsmanship to every dish, ensuring that your event stands out with a touch of modern refinement and classic prestige.
-
-Explore a world of refined flavors and bespoke menus designed to elevate your next occasion into an extraordinary culinary journey.
+        Our approach is rooted in balance—refined yet human, elegant yet warm.
+        The result is an experience that feels composed, personal, and memorable.
       </p>
     </div>
+
   </div>
 </main>
 
@@ -170,3 +178,4 @@ Explore a world of refined flavors and bespoke menus designed to elevate your ne
 
 </body>
 </html>
+
