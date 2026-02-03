@@ -48,31 +48,12 @@
       flex-wrap: wrap;
     }
 
-    .brand{
-      display:flex;
-      align-items:center;
-      gap: 16px;
-    }
-
+    /* LOGO ONLY — no text beside */
     .brand img{
-      height: 88px;
+      height: 120px; /* bigger logo */
       width:auto;
       display:block;
-    }
-
-    .brand .name{
-      display:flex;
-      flex-direction:column;
-      line-height:1.15;
-    }
-    .brand .name strong{
-      letter-spacing: .2px;
-      font-size: 14px;
-    }
-    .brand .name span{
-      color: var(--muted);
-      letter-spacing: 2px;
-      font-size: 12px;
+      background: transparent; /* ensure PNG blends */
     }
 
     nav{
@@ -124,7 +105,7 @@
     }
 
     @media (max-width: 520px){
-      .brand img{ height: 78px; }
+      .brand img{ height: 100px; }
       h1{ font-size: 38px; }
       nav{ gap: 12px; }
     }
@@ -137,12 +118,8 @@
   <div class="wrap">
     <div class="top">
       <div class="brand">
-        <!-- Logo filename contains a space -->
+        <!-- Logo only, transparent PNG -->
         <img src="gachee%20logo.png" alt="LA GÂCHE Logo">
-        <div class="name">
-          <strong>LA GÂCHE</strong>
-          <span>FOOD SERVICE</span>
-        </div>
       </div>
 
       <nav aria-label="Primary">
@@ -160,25 +137,22 @@
     <h1>Luxury, delivered with warmth.</h1>
 
     <p class="subtitle">
-      LA GÂCHE is a premium gourmet brand embodying luxury and culinary excellence. Our identity,
-      defined by a sophisticated monogram in rich black and gold, blends classic prestige with
-      modern refinement. We are committed to high-end craftsmanship and an exclusive experience
-      shaped with intention and care.
+     Welcome to LA GĂCHE
+Experience the Art of Gourmet Catering
+Welcome to LA GĂCHE, where culinary excellence meets unparalleled luxury. We believe that catering is not just about serving food; it is about creating an atmosphere of sophistication and a lasting sensory memory.
     </p>
 
     <div class="rule"></div>
 
     <div class="content">
       <p>
-        LA GÂCHE was created for those who appreciate quiet standards. We value clarity over excess
-        and craftsmanship over noise. Every detail is treated as essential—because true refinement
-        is felt in the smallest choices.
+        We specialize in crafting exclusive dining experiences tailored for the most discerning tastes. Whether you are hosting a sophisticated private celebration, an intimate gathering, or a high-end corporate event, our mission is to provide a seamless blend of world-class flavors and flawless service.
       </p>
 
       <p>
-        Our approach balances heritage with a modern sense of elegance. The goal is not to impress
-        loudly, but to deliver an experience that feels composed, personal, and memorable—warm in
-        tone, refined in execution.
+        At LA GĂCHE, our commitment to premium quality and artistic presentation ensures that every bite is a masterpiece. We meticulously source the finest ingredients and apply high-end craftsmanship to every dish, ensuring that your event stands out with a touch of modern refinement and classic prestige.
+
+Explore a world of refined flavors and bespoke menus designed to elevate your next occasion into an extraordinary culinary journey.
       </p>
     </div>
   </div>
