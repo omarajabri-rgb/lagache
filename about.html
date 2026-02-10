@@ -28,7 +28,7 @@
   <meta name="twitter:card" content="summary_large_image" />
   <meta name="twitter:title" content="About LA GÂCHE" />
   <meta name="twitter:description" content="Luxury gourmet catering in Amman—crafted with uncompromising quality, artistic presentation, and bespoke service." />
-  <meta name="twitter:image" content="https://www.la-gache.com/.png" />
+  <meta name="twitter:image" content="https://www.la-gache.com/logo.png" />
 
   <!-- Structured Data (Schema.org) -->
   <script type="application/ld+json">
@@ -37,7 +37,7 @@
     "@type": "CateringBusiness",
     "name": "LA GÂCHE",
     "url": "https://www.la-gache.com/",
-    "image": "https://www.la-gache.com/.png",
+    "image": "https://www.la-gache.com/logo.png",
     "description": "LA GÂCHE is a premier gourmet catering brand dedicated to culinary luxury, artistic presentation, and bespoke hospitality for private and corporate events.",
     "areaServed": {
       "@type": "City",
@@ -76,14 +76,8 @@
       line-height:1.8;
     }
 
-    a{
-      color:inherit;
-      text-decoration:none;
-    }
-    a:hover{
-      text-decoration: underline;
-      text-underline-offset:6px;
-    }
+    a{ color:inherit; text-decoration:none; }
+    a:hover{ text-decoration:none; }
 
     .wrap{
       width:min(var(--max), calc(100% - 44px));
@@ -110,10 +104,30 @@
       background:transparent;
     }
 
+    /* NAV (colored accents) */
     nav{
       display:flex;
-      gap:16px;
+      gap:18px;
       font-weight:700;
+      align-items:center;
+      flex-wrap:wrap;
+    }
+
+    nav a{
+      color: var(--muted);
+      padding: 8px 2px;
+      border-bottom: 2px solid transparent;
+      transition: color .18s ease, border-color .18s ease;
+    }
+
+    nav a:hover{
+      color: var(--gold);
+      border-bottom-color: rgba(201,164,107,.45);
+    }
+
+    nav a.active{
+      color: var(--ink);
+      border-bottom-color: var(--gold);
     }
 
     main{
@@ -171,7 +185,7 @@
     }
 
     @media (max-width:520px){
-      .brand img{ height:96px; }
+      .brand img{ height:140px; }
       h1{ font-size:36px; }
     }
   </style>
@@ -188,9 +202,8 @@
 
       <nav aria-label="Primary">
         <a href="index.html">Home</a>
-        <a href="about.html" style="text-decoration:underline; text-underline-offset:6px;">About</a>
+        <a href="about.html" class="active">About</a>
         <a href="services.html">Services</a>
-        <a href="contact.html">Contact</a>
       </nav>
     </div>
   </div>
